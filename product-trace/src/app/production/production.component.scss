@@ -1,0 +1,160 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 25px;
+}
+
+.inbound {
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.inbound:hover {
+  transform: scale(1.05);
+}
+
+.image {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.image img {
+  width: 450px;
+  height: 250px;
+  object-fit: cover;
+}
+
+img {
+  width: 400px;
+  height: 250px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.fa-sharp {
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.fa-sharp:hover {
+  color: #0056b3;
+}
+
+ol {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.input-quantity {
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 300px;
+}
+
+mat-raised-button {
+  background-color: #6698ce;
+  color: #ffffff;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+mat-raised-button:hover {
+  background-color: #6698ce;
+}
+
+.view-lot {
+  margin: 20px 0 30px 0;
+}
+
+.fa-circle-chevron-left {
+  position: absolute;
+  top: 26%;
+  left: 0;
+  transform: translateY(-100%);
+  color: #333;
+  font-size: 24px;
+  padding: 10px;
+  z-index: 2;
+  margin-left: 20px;
+}
+
+.fa-circle-chevron-right {
+  position: absolute;
+  top: 26%;
+  right: 0;
+  transform: translateY(-100%);
+  color: #333;
+  font-size: 24px;
+  padding: 10px;
+  z-index: 2;
+  margin-right: 20px;
+}
+
+.input-quantity {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.details {
+    padding: 10px 35px 10px 35px;
+}
+
+.details > div {
+    margin-bottom: 15px;
+    font-size: 18px;
+    line-height: 1.0;
+}
+
+.details ol {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.details ol li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.details ol li div {
+    margin-bottom: 5px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.details ol li div:first-child {
+    font-weight: bold;
+}
+
+
+.inputs {
+    padding: 10px 20px 10px 20px;
+}
+
+.inputs button {
+    float: right;
+}

@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="postBox">
+        <form class="form" [formGroup]="inboundForm">
+            <mat-form-field>
+                <mat-label>Lot no</mat-label>
+                <input matInput formControlName="lotNo" placeholder="Enter Lot no">
+            </mat-form-field>
+            <mat-error *ngIf="inboundForm.get('lotNo')?.invalid && (inboundForm.get('lotNo')?.dirty || inboundForm.get('lotNo')?.touched)">
+                lotNo is required!</mat-error>
+
+            <mat-form-field>
+                <mat-label>Invoice no</mat-label>
+                <input matInput formControlName="invoiceNo" placeholder="Enter Invoice no">
+            </mat-form-field>
+            <mat-error *ngIf="inboundForm.get('invoiceNo')?.invalid &&
+    (inboundForm.get('invoiceNo')?.dirty ||
+     inboundForm.get('invoiceNo')?.touched)">
+                invoiceNo is required!</mat-error>
+
+
+            <mat-form-field>
+                <mat-label>Seller name</mat-label>
+                <input matInput formControlName="sellerName" placeholder="Enter Seller name">
+            </mat-form-field>
+
+
+            <mat-form-field>
+                <mat-label>Added by</mat-label>
+                <input matInput formControlName="addedBy" placeholder="Enter Added by">
+            </mat-form-field>
+            <mat-error *ngIf="inboundForm.get('addedBy')?.invalid &&
+    (inboundForm.get('addedBy')?.dirty ||
+     inboundForm.get('addedBy')?.touched)">
+                addedBy is required!</mat-error>
+
+            <mat-form-field>
+                <mat-label>Total quantity</mat-label>
+                <input matInput formControlName="totalQuantity" placeholder="Enter Total quantity">
+            </mat-form-field>
+            <mat-error *ngIf="inboundForm.get('totalQuantity')?.invalid &&
+    (inboundForm.get('totalQuantity')?.dirty ||
+     inboundForm.get('totalQuantity')?.touched)">
+                totalQuantity is required!</mat-error>
+
+
+                <div formArrayName="materialComposition" class="industry-box">
+                    <div *ngFor="let industry of materialComposition.controls; let i = index" class="new-container">
+                        <div [formGroupName]="i" class="industry-container">
+                            <div class="industry">
+    
+                                <mat-form-field>
+                                    <mat-label>Material type</mat-label>
+                                    <input matInput formControlName="materialType" placeholder="materialType" class="dynamic-input">
+                                </mat-form-field>
+    
+                                <mat-form-field>
+                                    <mat-label>Percentage</mat-label>
+                                    <input matInput formControlName="percentage" placeholder="percentage" class="dynamic-input">
+                                </mat-form-field>
+    
+                                <button class="remove-button" class="buttons"
+                                    (click)="removeComposition(i)">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="buttons" (click)="addComposition()">Add</button>
+                </div>
+    
+
+                <div class="form-field">
+                    <div class="input-file-container">
+                        <button class="input-file-button" (click)="uploadFile.click()" type="button">Choose Image</button>
+                        <input #uploadFile class="input-file" (change)="onFileUpload($event)" type="file" multiple>
+                    </div>
+                </div>
+                <div *ngIf="fileName[0]">
+                    <div class="images-selected">
+                        Selected Images
+                    </div> 
+                    <div *ngFor="let item of fileName">
+                        <div>{{item}}</div>
+                    </div>
+                </div>
+        
+
+            <button (click)="save()" class="buttons">Submit <i
+                    class="pi pi-check-circle"></i></button>
+        </form>
+    </div>
+</div>

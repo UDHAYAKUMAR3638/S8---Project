@@ -1,0 +1,18 @@
+<div class="container">
+    <div *ngFor="let x of productions" class="box">
+        <div class="heads">
+            <div>materialName: {{x.materialName}}</div>
+            <div>lotNo: {{x.lotNo}}</div>
+            <div>totalQuantity: {{x.totalQuantity}}kg</div>
+            <div>producedDate: {{x.producedDate}}</div>
+        </div>
+        <ol>
+            <li *ngFor="let y of x.materialComposition">
+                <div>materialType: {{y.materialType}}</div>
+                <div>percentage: {{y.percentage}}%</div>
+                <br>
+            </li>
+        </ol>
+        <button (click)="openDialog(x)">Export</button>
+    </div>
+</div>

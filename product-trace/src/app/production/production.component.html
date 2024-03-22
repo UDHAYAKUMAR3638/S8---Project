@@ -1,0 +1,30 @@
+<div class="container">
+    <button (click)="openDialog()" class="view-lot">View lots</button>
+    <div class="box">
+        <div *ngFor="let x of inbounds" class="inbound">
+            <div class="image">
+                <img [src]="x.images[x.currentImage]" alt="img" height="200px" width="200px">
+                <i class="fa-sharp fa-solid fa-circle-chevron-left" (click)="prevImage(x)" style="color: #707070;"></i>
+                <i class="fa-sharp fa-solid fa-circle-chevron-right" (click)="nextImage(x)" style="color: #707070;"></i>        
+            </div>
+            <div class="details">
+                <div>Lot no: {{x.lotNo}}</div>
+                <div>Invoice: {{x.invoiceNo}}</div>
+                <div>Quantity: {{x.remainingQuantity}}kg</div>
+                <ol>
+                    <li *ngFor="let y of x.materialComposition">
+                        <div>Material type: {{y.materialType}}</div>
+                        <div>Percentage: {{y.percentage}}%</div>
+                    </li>
+                </ol>
+            </div>
+            <div class="inputs">
+                <input placeholder="Enter quantity" #inp class="input-quantity">
+                <button (click)="add(x,inp.value)">
+                    Add quantity
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>

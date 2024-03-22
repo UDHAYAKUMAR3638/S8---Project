@@ -1,0 +1,9 @@
+<div class="container">
+    <input class="input-field" placeholder="Buyer Name" [(ngModel)]="buyerName">
+    <input class="input-field" placeholder="Lot No" [(ngModel)]="lotNo">
+    <input class="input-field" placeholder="Invoice No" [(ngModel)]="invoiceNo" type="number">
+    <input class="input-field" placeholder="Quantity" [(ngModel)]="quantity" type="number">
+    <button class="action-button" (click)="outbound()">
+        Outbound
+    </button>
+</div>

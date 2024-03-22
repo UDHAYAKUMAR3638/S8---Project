@@ -1,0 +1,59 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.box {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.box ol {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.box ol li {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.box ol li div {
+    margin-bottom: 5px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.box ol li div:first-child {
+    font-weight: bold;
+}
+
+button {
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.heads {
+    margin: 20px 10px 30px 10px;
+}
+
+.heads > div {
+    margin-bottom: 15px;
+    font-size: 18px;
+    line-height: 1.5;
+}
