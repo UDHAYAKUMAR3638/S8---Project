@@ -1,0 +1,24 @@
+<button class="menu-button" mat-icon-button [matMenuTriggerFor]="menu" >
+  <mat-icon>menu</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="inbound">
+    <i class="fa-duotone fa-house"></i>
+    Inbound
+  </button>
+
+  <span appPermissions>
+    <button mat-menu-item routerLink="production">
+      <i class="fa-regular fa-plus"></i>
+      Production
+    </button>
+  </span>
+
+  <button mat-menu-item routerLink="outbound">
+    <i class="fa-sharp fa-regular fa-circle-info"></i>
+    Outbound
+  </button>
+</mat-menu>
+
+<router-outlet></router-outlet>

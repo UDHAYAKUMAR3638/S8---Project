@@ -16,6 +16,9 @@ import { ViewProductionLotsComponent } from './view-production-lots/view-product
 import { MatDialogModule } from '@angular/material/dialog';
 import { OutboundProductionsComponent } from './outbound-productions/outbound-productions.component';
 import { ViewOutboundComponent } from './view-outbound/view-outbound.component';
+import { HomeComponent } from './home/home.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import { ViewOutboundComponent } from './view-outbound/view-outbound.component';
     ProductionComponent,
     ViewProductionLotsComponent,
     OutboundProductionsComponent,
-    ViewOutboundComponent
+    ViewOutboundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,9 @@ import { ViewOutboundComponent } from './view-outbound/view-outbound.component';
     MatInputModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

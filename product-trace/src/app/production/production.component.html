@@ -4,8 +4,8 @@
         <div *ngFor="let x of inbounds" class="inbound">
             <div class="image">
                 <img [src]="x.images[x.currentImage]" alt="img" height="200px" width="200px">
-                <i class="fa-sharp fa-solid fa-circle-chevron-left" (click)="prevImage(x)" style="color: #707070;"></i>
-                <i class="fa-sharp fa-solid fa-circle-chevron-right" (click)="nextImage(x)" style="color: #707070;"></i>        
+                <i class="fa-sharp fa-solid fa-circle-chevron-left" (click)="prevImage(x)" style="color: #707070;" *ngIf="x.currentImage !== 0"></i>
+                <i class="fa-sharp fa-solid fa-circle-chevron-right" (click)="nextImage(x)" style="color: #707070;" *ngIf="x.currentImage < x.images.length-1"></i>        
             </div>
             <div class="details">
                 <div>Lot no: {{x.lotNo}}</div>
@@ -19,8 +19,8 @@
                 </ol>
             </div>
             <div class="inputs">
-                <input placeholder="Enter quantity" #inp class="input-quantity">
-                <button (click)="add(x,inp.value)">
+                <input placeholder="Enter quantity" #inp class="input-quantity" type="number">
+                <button (click)="add(x,inp.valueAsNumber)">
                     Add quantity
                 </button>
             </div>

@@ -19,7 +19,7 @@ import com.trace.product.Service.ProductionService;
 
 
 @RestController
-@RequestMapping(path = "production")
+@RequestMapping("production")
 @CrossOrigin
 public class ProductionController {
 

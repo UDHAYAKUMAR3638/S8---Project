@@ -87,7 +87,7 @@ public class InboundService {
         if (contentType != null && contentType.startsWith("image")) {
             url = "http://localhost:8080/static/images/" + file.getOriginalFilename();
             try {
-                file.transferTo(new File("C:/Users/ARULMOZHI K/OneDrive/Documents/Intern/S8- project/S8-Project/src/main/resources/static/images/" + file.getOriginalFilename()));
+                file.transferTo(new File("C:/Users/Nathis S/OneDrive/Desktop/S8---Project/S8-Project/src/main/resources/static/images/" + file.getOriginalFilename()));
             } 
             catch (IllegalStateException | IOException e) {
                 e.printStackTrace();

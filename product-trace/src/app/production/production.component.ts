@@ -26,7 +26,7 @@ export class ProductionComponent {
     });
   }
 
-  add(inbound: any, value: any) {
+  add(inbound: any, value: number) {
     this.selectedLot.push({ lotNo: inbound.lotNo, quantity: value });
       console.log(this.selectedLot);
   }
@@ -40,11 +40,13 @@ export class ProductionComponent {
   }
 
   prevImage(x: any) {
-    x.currentImage++;
+    x.currentImage--;
+    console.log(x);
+    
   }
 
   nextImage(x: any) {
-    x.currentImage--;
+    x.currentImage++;
   }
 
 }
