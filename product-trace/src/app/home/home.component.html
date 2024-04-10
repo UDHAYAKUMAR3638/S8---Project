@@ -1,20 +1,20 @@
-<button class="menu-button" mat-icon-button [matMenuTriggerFor]="menu" >
+<button class="menu-button" mat-icon-button [matMenuTriggerFor]="menu" style="margin-top: 10px; margin-left: 20px">
   <mat-icon>menu</mat-icon>
 </button>
 
-<mat-menu #menu="matMenu" class="menu">
-  <button mat-menu-item routerLink="inbound" >
-    <i class="fa-duotone fa-house" style="margin-left: 2px; margin-right: 10px;"></i>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="inbound">
+    <i class="fa-duotone fa-house" style="margin-left: 5px; margin-right: 20px;"></i>
       Inbound
   </button>
 
   <button mat-menu-item routerLink="production">
-    <i class="fa-regular fa-plus" style="margin-left: 2px; margin-right: 10px;"></i>
+    <i class="fa-regular fa-plus" style="margin-left: 5px; margin-right: 20px;"></i>
       Production
   </button>
 
   <button mat-menu-item routerLink="outbound">
-    <i class="fa-sharp fa-regular fa-circle-info" style="margin-left: 2px; margin-right: 10px;"></i>
+    <i class="fa-sharp fa-regular fa-circle-info" style="margin-left: 5px; margin-right: 20px;"></i>
       Outbound
   </button>
 </mat-menu>
