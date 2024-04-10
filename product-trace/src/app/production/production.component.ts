@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ViewProductionLotsComponent } from '../view-production-lots/view-production-lots.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-production',
@@ -21,15 +22,28 @@ export class ProductionComponent {
       next: (data) => {
         this.inbounds = data;
         console.log(this.inbounds);
-        
       }
     });
   }
 
-  add(inbound: any, value: number) {
-    this.selectedLot.push({ lotNo: inbound.lotNo, quantity: value });
-      console.log(this.selectedLot);
-  }
+    add(inbound: any, value: number) {
+      this.selectedLot.push({ lotNo: inbound.lotNo, quantity: value });
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Material Inserted in Lot",
+        showConfirmButton: false,
+        timer: 800,
+        didOpen: () => {
+          const modal = Swal.getPopup();
+          modal.style.width = '300px';
+          modal.style.height = '220px';
+          modal.style.margin = '0px';
+          modal.style.padding = '0px';
+        },
+      });
+    
+    }
 
   openDialog(){
    this.dialog.open(ViewProductionLotsComponent,{

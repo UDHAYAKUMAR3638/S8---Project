@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-production-lots',
@@ -10,7 +12,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class ViewProductionLotsComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) public details: any, public dialogRef: MatDialogRef<ViewProductionLotsComponent>,
-    private http: HttpClient
+    private http: HttpClient,
+    private route: Router
   ) { }
 
   materialName: string = '';
@@ -22,8 +25,15 @@ export class ViewProductionLotsComponent {
     const obj = { materialName: this.materialName, lotNo: this.lotNo, totalQuantity: this.totalQuantity, producedDate: this.producedDate, inputLots: this.details };
     this.http.post("http://localhost:8080/production", obj).subscribe({
       next: (data) => {
-        console.log(data);
-
+        this.dialogRef.close();
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Inserted to Outbound list",
+            showConfirmButton: true,
+          });
+        
+        this.route.navigate(['outbound']);
       }
     })
   }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inbound',
@@ -10,8 +12,9 @@ import { HttpClient } from '@angular/common/http';
 export class InboundComponent {
 
   constructor(
-    private formBuilder: FormBuilder, // Inject FormBuilder
+    private formBuilder: FormBuilder,
     private http: HttpClient,
+    private route: Router
   ) { }
 
   inboundForm: FormGroup;
@@ -34,7 +37,7 @@ export class InboundComponent {
   Composition: FormGroup;
 
   addComposition(): void {
-    this.Composition = this.formBuilder.group({ // Use FormBuilder to create a FormGroup
+    this.Composition = this.formBuilder.group({
       materialType: ['', Validators.required],
       percentage: [0, Validators.required],
     });
@@ -84,7 +87,15 @@ export class InboundComponent {
     this.http.post("http://localhost:8080/inbound/save",formData).subscribe({
       next:(data)=>{
         console.log(data);
-
+        Swal.fire("Inserted Inbound Successfully!");
+        this.route.navigate(['production']);
+      },
+      error: () => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+        });
       }
     });
   }

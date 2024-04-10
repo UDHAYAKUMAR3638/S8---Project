@@ -2,22 +2,20 @@
   <mat-icon>menu</mat-icon>
 </button>
 
-<mat-menu #menu="matMenu">
-  <button mat-menu-item routerLink="inbound">
-    <i class="fa-duotone fa-house"></i>
-    Inbound
+<mat-menu #menu="matMenu" class="menu">
+  <button mat-menu-item routerLink="inbound" >
+    <i class="fa-duotone fa-house" style="margin-left: 2px; margin-right: 10px;"></i>
+      Inbound
   </button>
 
-  <span appPermissions>
-    <button mat-menu-item routerLink="production">
-      <i class="fa-regular fa-plus"></i>
+  <button mat-menu-item routerLink="production">
+    <i class="fa-regular fa-plus" style="margin-left: 2px; margin-right: 10px;"></i>
       Production
-    </button>
-  </span>
+  </button>
 
   <button mat-menu-item routerLink="outbound">
-    <i class="fa-sharp fa-regular fa-circle-info"></i>
-    Outbound
+    <i class="fa-sharp fa-regular fa-circle-info" style="margin-left: 2px; margin-right: 10px;"></i>
+      Outbound
   </button>
 </mat-menu>
 

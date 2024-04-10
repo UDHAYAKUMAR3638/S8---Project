@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-outbound',
@@ -10,7 +11,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class ViewOutboundComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) public details: any, public dialogRef: MatDialogRef<ViewOutboundComponent>,
-    private http: HttpClient
+    private http: HttpClient,
   ) { }
 
   buyerName: string = '';
@@ -36,12 +37,20 @@ export class ViewOutboundComponent {
     this.http.post('http://localhost:8080/outbound/save', obj).subscribe({
       next: (data) => {
         console.log("outbound", data);
-      }
-    });
-
-    this.http.put('http://localhost:8080/production', { id: this.details._id, quantity: this.quantity * 1.0 }).subscribe({
-      next: (data) => {
-        console.log("update", data);
+        this.http.put('http://localhost:8080/production', { id: this.details._id, quantity: this.quantity * 1.0 }).subscribe({
+          next: (data) => {
+            console.log("update", data);
+          }
+        });
+      },
+      complete: () => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Material Exported Successfully",
+          showConfirmButton: true,
+        })
+        this.dialogRef.close();
       }
     });
   }

@@ -9,8 +9,6 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./outbound-productions.component.scss']
 })
 export class OutboundProductionsComponent {
-
-
   constructor(
     private http: HttpClient,
     public dialog: MatDialog,
