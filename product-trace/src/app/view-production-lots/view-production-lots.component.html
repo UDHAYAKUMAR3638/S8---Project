@@ -1,8 +1,12 @@
 <div class="container">
+    <div class="heading">Production Lots</div>
     <input class="input-field" placeholder="Material Name" [(ngModel)]="materialName">
     <input class="input-field" placeholder="Lot No" [(ngModel)]="lotNo">
     <input class="input-field" placeholder="Total Quantity" [(ngModel)]="totalQuantity" type="number">
 
+    <div class="items-heading" *ngIf="details.length != 0">
+        Added Items
+    </div>
     <div *ngFor="let x of details" class="lots">
         <div>Lot No: {{x.lotNo}}</div>
         <div>Quantity: {{x.quantity}}kg</div>
